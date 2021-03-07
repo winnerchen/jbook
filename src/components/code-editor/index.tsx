@@ -2,13 +2,11 @@ import './code-editor.css';
 import './syntax.css';
 import MoancoEditor, { EditorDidMount } from '@monaco-editor/react';
 import * as monacoEditor from 'monaco-editor/esm/vs/editor/editor.api';
-//import IStandaloneCodeEditor from '@monaco-editor/react';
 import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
 import { useRef } from 'react';
 import codeShift from 'jscodeshift';
 import Highlighter from 'monaco-jsx-highlighter';
-import bundler from '../../bundler';
 
 interface CodeEditorProps {
   initialValue: string;
