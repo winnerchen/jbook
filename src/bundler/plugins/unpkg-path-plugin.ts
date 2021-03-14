@@ -94,17 +94,3 @@ const onResolveHelper = async (inputPath: string) => {
     return resolvedPath;
   }
 };
-
-function countInArray(array: string[], what: string) {
-  return array.filter((item) => item == what).length;
-}
-
-const buildPathFromRes = (
-  res: AxiosResponse<any>,
-  pathArr: string[]
-): string => {
-  const responseURL = res.request.responseURL;
-  pathArr.shift();
-  const path = new URL('./', responseURL).pathname + pathArr.join('/');
-  return `${unpkgHost}/${path}`;
-};
