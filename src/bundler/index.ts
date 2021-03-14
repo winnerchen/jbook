@@ -1,5 +1,4 @@
 import * as esbuild from 'esbuild-wasm';
-import { jsxFragment } from 'jscodeshift';
 import { fetchPlugin } from './plugins/fetch-plugin';
 import { unpkgPathPlugin } from './plugins/unpkg-path-plugin';
 

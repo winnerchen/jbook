@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import * as esbuild from 'esbuild-wasm';
 import { fileCache } from './fetch-plugin';
 import { Cache } from './fetch-plugin';
@@ -38,7 +38,7 @@ export const unpkgPathPlugin = () => {
 
       //handle main file of a module
       build.onResolve(
-        { filter: /^[^\/]+$/ },
+        { filter: /^[^/]+$/ },
         async (args: esbuild.OnResolveArgs) => {
           const cache = (await fileCache.getItem<Cache>(args.path))
             ?.onResolveResult;

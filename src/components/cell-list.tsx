@@ -11,10 +11,6 @@ const CellList: React.FC = () => {
     });
   });
 
-  const bundles = useTypedSelector(({ bundles }) => {
-    return bundles;
-  });
-
   const renderedCells = cells.map((cell) => {
     return (
       <React.Fragment key={cell.id}>
