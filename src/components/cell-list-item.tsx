@@ -4,6 +4,7 @@ import { Cell } from '../state';
 import CodeCell from './code-cell';
 import TextEditor from './text-editor';
 import ActionBar from './action-bar';
+import { Bundle } from '../state/bundle';
 
 interface CellListItemProps {
   cell: Cell;

@@ -13,7 +13,7 @@ interface ResizableProps {
 const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   const [innerHeight, setInnerHeight] = useState(window.innerHeight);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const [ratio, setRatio] = useState(0.75);
+  const [ratio, setRatio] = useState(0.6);
   const [width, setWidth] = useState(window.innerWidth * ratio);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
         }
       : {
           className: 'resize-horizontal',
-          maxConstraints: [innerWidth * 0.75, Infinity],
+          maxConstraints: [innerWidth * 0.6, Infinity],
           minConstraints: [innerWidth * 0.25, Infinity],
           height: Infinity,
           width: width,

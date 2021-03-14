@@ -1,4 +1,5 @@
 import * as esbuild from 'esbuild-wasm';
+import { jsxFragment } from 'jscodeshift';
 import { fetchPlugin } from './plugins/fetch-plugin';
 import { unpkgPathPlugin } from './plugins/unpkg-path-plugin';
 
@@ -16,8 +17,10 @@ const bundler = async (rawCode: string) => {
       entryPoints: ['index.js'],
       bundle: true,
       write: false,
-      plugins: [unpkgPathPlugin(rawCode), fetchPlugin(rawCode)],
-      define: { 'process.env.NODE_ENV': '"production"', global: 'window' },
+      plugins: [unpkgPathPlugin(), fetchPlugin(rawCode)],
+      define: { 'process.env.NODE_ENV': "'production'", global: 'window' },
+      jsxFactory: '_React.createElement',
+      jsxFragment: '_React.createFragment',
     });
     return { code: result.outputFiles[0].text, err: undefined };
   } catch (err) {
